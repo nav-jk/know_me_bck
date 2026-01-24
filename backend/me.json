@@ -1,0 +1,53 @@
+{
+  "name": "Navaneet Jayakrishnan",
+  "role": "Electronics and Communication Engineering Undergraduate",
+  "headline": "ECE undergrad building backend systems, AI-powered applications, and bio-inspired computing models",
+  "bio": "I am an Electronics and Communication Engineering undergraduate at NIT Calicut with strong interests in backend development, applied AI, and neuromorphic systems. I have worked on research-oriented signal processing problems, AI-driven automation, and scalable backend systems, and I enjoy building production-grade APIs and explainable intelligent systems.",
+  "skills": {
+  "languages": [
+    "Python",
+    "C",
+    "C++"
+  ],
+  "frameworks_and_tools": [
+    "FastAPI",
+    "Flask",
+    "Django",
+    "ESP-IDF",
+    "FreeRTOS",
+    "Verilog",
+    "Git"
+  ]
+},
+  "education": {
+    "degree": "B.Tech in Electronics and Communication Engineering",
+    "institution": "National Institute of Technology Calicut",
+    "duration": "2023 - Present"
+  },
+  "experience": [
+    {
+      "role": "Research Intern",
+      "organization": "IIT Jodhpur",
+      "duration": "May 2025 - July 2025",
+      "description": "Worked on neural signal analysis and computational modeling, gaining hands-on experience in signal processing and data interpretation for bio-inspired systems."
+    },
+    {
+      "role": "Software Intern",
+      "organization": "Stealth Mode Startup",
+      "duration": "Feb 2025 - Jun 2025",
+      "description": "Automated complex workflows using AI, focusing on optimization, integration, and scalable software solutions applicable to product development."
+    },
+    {
+      "role": "Intern",
+      "organization": "Annam.ai, IIT Ropar",
+      "duration": "May 2025 - July 2025",
+      "description": "Developed a full-stack system with an innovative WhatsApp-based interface, emphasizing usability, scalability, and user engagement."
+    }
+  ],
+  "profiles": {
+    "github": "https://github.com/nav-jk",
+    "linkedin": "https://www.linkedin.com/in/navaneet-j/",
+    "leetcode": "https://leetcode.com/u/navaneet_2005/"
+  },
+  "last_updated": "2026-01-24"
+}

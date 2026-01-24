@@ -1,0 +1,22 @@
+{
+  "blogs": [
+    {
+      "id": 202,
+      "project_id": null,
+      "title": "Practical Signal Processing on ESP32: From ADC Sampling to Real-Time Analysis",
+      "short_description": "A practical guide to implementing real-time signal processing pipelines on the ESP32 under hardware and timing constraints.",
+      "detailed_description": "The ESP32 is often marketed as an IoT microcontroller, but its dual-core architecture, DMA-capable peripherals, and FreeRTOS support make it surprisingly capable for real-time signal processing tasks. In this article, I walk through how to design a complete signal processing pipeline on the ESP32, starting from analog signal acquisition to real-time analysis and decision-making.\n\nThe discussion begins with the ESP32 ADC subsystem, focusing on sampling strategies, resolution limitations, non-linearity issues, and the importance of proper attenuation and calibration. I explain why naive polling-based sampling leads to timing jitter, and how to achieve deterministic sampling using hardware timers, DMA, and FreeRTOS tasks pinned to specific cores.\n\nNext, the blog covers digital signal preprocessing techniques that are feasible on resource-constrained devices, including DC offset removal, moving average filters, and simple IIR and FIR filters. I discuss trade-offs between computational complexity and signal fidelity, and why fixed-point arithmetic is often preferable to floating-point operations for predictable performance.\n\nThe article then explores frequency-domain analysis on the ESP32, including FFT-based spectral analysis. I explain how to choose appropriate FFT sizes, windowing functions, and sampling rates to avoid spectral leakage and aliasing. Memory usage, stack constraints, and execution time are analyzed to show what is realistically achievable in real-time scenarios.\n\nFinally, I describe how processed signals can be used for higher-level tasks such as event detection, classification, and control logic. Practical examples include peak detection, threshold-based event triggers, and lightweight feature extraction suitable for on-device intelligence. Throughout the article, I emphasize debugging techniques using serial plots, logging, and external tools like logic analyzers to validate timing and signal integrity.\n\nThis blog aims to provide a realistic, engineering-focused perspective on signal processing with the ESP32, highlighting both its capabilities and its limitations. The goal is not to treat the ESP32 as a DSP replacement, but to show how careful system design enables robust real-time signal processing on embedded hardware.",
+      "tags": [
+        "Signal Processing",
+        "ESP32",
+        "Embedded Systems",
+        "Real-Time Systems",
+        "DSP"
+      ],
+      "published_on": "2026-01-24",
+      "reading_time_minutes": 8,
+      "status": "published"
+    }
+  ],
+  "last_updated": "2026-01-24"
+}

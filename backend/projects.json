@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Government Policy Recommendation System",
+      "short_description": "Explainable AI system for recommending government policies based on eligibility and semantic reasoning.",
+      "detailed_description": "Developed a multi-stage recommendation system combining rule-based eligibility filtering with LLM-driven semantic reasoning over domain-restricted government policy documents. Built an explainable pipeline that grounds responses in official sources using Google Search API, significantly reducing hallucination and improving policy relevance.",
+      "tech_stack": ["Python", "FastAPI", "LLMs", "Google Search API", "Vector Search"],
+      "category": "AI / Backend Systems",
+      "status": "completed",
+      "repo": "https://github.com/nav-jk"
+    },
+    {
+      "id": 2,
+      "title": "NanoCore-16: Custom 16-bit CPU Architecture",
+      "short_description": "Designed and implemented a custom 16-bit CPU from ISA to datapath.",
+      "detailed_description": "Designed and implemented a complete 16-bit CPU architecture including instruction set design, control logic, datapath, ALU, registers, and program counter. Verified correctness using simulations and test programs, strengthening digital hardware design and low-level systems understanding.",
+      "tech_stack": ["Verilog", "Digital Design", "Computer Architecture"],
+      "category": "Hardware / Systems",
+      "status": "completed",
+      "repo": "https://github.com/nav-jk"
+    },
+{
+  "id": 3,
+  "title": "Audio Equalizer Firmware (ESP32)",
+  "short_description": "Real-time audio equalizer firmware implemented on ESP32 using digital signal processing techniques.",
+  "detailed_description": "Developed real-time audio equalizer firmware on the ESP32, focusing on low-latency digital signal processing under embedded constraints. The system samples audio signals using the ESP32 ADC, applies digital filtering techniques to implement multiple frequency bands, and outputs the processed signal in real time. The project involved careful handling of sampling rates, buffer management, and computational efficiency to meet real-time performance requirements, making it a practical exploration of DSP concepts on resource-constrained embedded hardware.",
+  "tech_stack": [
+    "ESP32",
+    "ESP-IDF",
+    "C",
+    "Digital Signal Processing",
+    "ADC",
+    "Real-Time Systems"
+  ],
+  "category": "Embedded Systems / Signal Processing",
+  "status": "completed",
+  "repo": "https://github.com/nav-jk/audio-eq-firmware"
+}
+
+  ],
+  "owner": "Navaneet Jayakrishnan",
+  "last_updated": "2026-01-24"
+}
