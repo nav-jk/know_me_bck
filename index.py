@@ -19,13 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent
 @app.get("/")
 async def me():
     try:
-       with open('me.json',mode='r') as me_json:
+        with open(BASE_DIR / "me.json", "r") as me_json:
             data = json.load(me_json)
     except FileNotFoundError:
-        print(f"Error: The file was not found.")
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from the file {me_json}.")
+        raise HTTPException(status_code=500, detail="me.json not found")
     return data
+
 
 @app.get("/projects")
 async def project():
