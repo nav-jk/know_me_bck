@@ -1,12 +1,11 @@
 from fastapi import FastAPI, HTTPException
-import os
-import json
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
+import json
 
-app = FastAPI()
 
-# CORS (safe for portfolio)
+app = FastAPI(title="Know Me Backend")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,74 +15,64 @@ app.add_middleware(
 
 BASE_DIR = Path(__file__).resolve().parent
 
-@app.get("/")
-async def me():
+
+def load_json(filename: str):
+    path = BASE_DIR / filename
+
+    if not path.exists():
+        raise HTTPException(
+            status_code=500,
+            detail=f"{filename} not found on server"
+        )
+
     try:
-        with open(BASE_DIR / "me.json", "r") as me_json:
-            data = json.load(me_json)
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="me.json not found")
-    return data
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Invalid JSON format in {filename}"
+        )
+
+
+@app.get("/")
+async def get_me():
+    return load_json("me.json")
 
 
 @app.get("/projects")
-async def project():
-    try:
-       with open('projects.json',mode='r') as proj_json:
-            data = json.load(proj_json)
-    except FileNotFoundError:
-        print(f"Error: The file was not found.")
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from the file {proj_json}.")
-    return data
-@app.get("/projects/{id}")
-async def project(id: int):
-    try:
-        with open("projects.json", "r") as proj_json:
-            data = json.load(proj_json)
+async def get_projects():
+    return load_json("projects.json")
 
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="projects.json not found")
 
-    except json.JSONDecodeError:
-        raise HTTPException(status_code=500, detail="Invalid JSON format")
+@app.get("/projects/{project_id}")
+async def get_project_by_id(project_id: int):
+    data = load_json("projects.json")
 
-    for project in data["projects"]:
-        if project["id"] == id:
+    for project in data.get("projects", []):
+        if project.get("id") == project_id:
             return project
 
-    raise HTTPException(status_code=404, detail=f"Project with id {id} not found")
+    raise HTTPException(
+        status_code=404,
+        detail=f"Project with id {project_id} not found"
+    )
 
-    
+
 @app.get("/blogs")
-async def blog():
-    try:
-       with open('blogs.json',mode='r') as blog_json:
-            data = json.load(blog_json)
-    except FileNotFoundError:
-        print(f"Error: The file was not found.")
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from the file {blog_json}.")
-    return data
+async def get_blogs():
+    return load_json("blogs.json")
 
-@app.get("/blogs/{id}")
-async def blog(id: int):
-    try:
-       with open('blogs.json',mode='r') as blog_json:
-            data = json.load(blog_json)
-    except FileNotFoundError:
-        print(f"Error: The file was not found.")
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from the file {blog_json}.")
-    for blog in data["blogs"]:
-        if blog["id"] == id:
+
+@app.get("/blogs/{blog_id}")
+async def get_blog_by_id(blog_id: int):
+    data = load_json("blogs.json")
+
+    for blog in data.get("blogs", []):
+        if blog.get("id") == blog_id:
             return blog
 
-    raise HTTPException(status_code=404, detail=f"Blog with id {id} not found")
-
-
-@app.get("/{any_thing}")
-async def not_avail(any_thing: str):
-    return {"message":f"404 {any_thing} not found"} 
-
-
+    raise HTTPException(
+        status_code=404,
+        detail=f"Blog with id {blog_id} not found"
+    )
